@@ -3,7 +3,7 @@ os: linux
 files:
   - source: src/
     destination: /var/www/html
-    permissions:
+permissions:
   - object: /var/www/html
     pattern: "**"
     owner: apache
