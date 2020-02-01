@@ -1,1 +1,1 @@
-service restart httpd
+service httpd restart
