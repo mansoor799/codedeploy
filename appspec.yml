@@ -4,17 +4,19 @@ files:
   - source: src/
     destination: /var/www/html
     permissions:
-      - object: /var/www/html
-      pattern: "**"
-      owner: apache
-      group: apache
-      mode: 755
-      type:
-        - file
+  - object: /var/www/html
+    pattern: "**"
+    owner: apache
+    group: apache
+    mode: 755
+    type:
+      - file
 hooks:
   BeforeInstall:
-    - location: scripts/install_dependencies.sh
+    - location: scripts/installapache.sh
+      runas: root
+    - location: scripts/startapache.sh
       runas: root
   AfterInstall:
-    - location: scripts/change_permissions.sh
+    - location: scripts/restartapache.sh
       runas: root
